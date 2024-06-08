@@ -1,8 +1,25 @@
-# Programación Orientada a Objetos
+from abc import ABC, abstractmethod
 
-print("Repositorio de código fuente utilizado en la Asignatura Programación Orientada a Objetos")
+class Animal(ABC):
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
 
-print("Institución: Universidad Estatal Amazónica")
-print("Carrera: Ingeniería en Tecnologías de la Información y Comunicación")
-print("Docente: Ing. Edwin Gustavo Fernández Sánchez, Mgs.")
+    @abstractmethod
+    def hablar(self):
+        pass
 
+class Perro(Animal):
+    def hablar(self):
+        return f"{self.nombre} dice: ¡Guau!"
+
+class Gato(Animal):
+    def hablar(self):
+        return f"{self.nombre} dice: ¡Miau!"
+
+# Uso
+perro = Perro("pepe", 5)
+gato = Gato("pepito", 3)
+
+print(perro.hablar())
+print(gato.hablar())
